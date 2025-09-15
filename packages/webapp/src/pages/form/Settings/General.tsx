@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { Form, Input, Switch } from '@/components'
+import { Form, Switch } from '@/components'
 
 export default function FormSettingsGeneral() {
   const { t } = useTranslation()

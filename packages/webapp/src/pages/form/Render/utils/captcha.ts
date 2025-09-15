@@ -4,7 +4,7 @@ export function initGeeTest(): Promise<Any> {
   return new Promise(resolve => {
     window.initGeetest4(
       {
-        captchaId: GEETEST_ID,
+        captchaId: window.heyform.geetestCaptchaId,
         product: 'bind',
         mask: {
           outside: false,
@@ -25,7 +25,7 @@ export function recaptchaToken(instance: Any): Promise<string> {
   return new Promise((resolve, reject) => {
     instance.ready(() => {
       instance
-        .execute(RECAPTCHA_KEY, {
+        .execute(window.heyform.googleRecaptchaKey, {
           action: 'submit'
         })
         .then(resolve)

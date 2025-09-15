@@ -1,13 +1,9 @@
 import { CHOICE_FIELD_KINDS, RATING_FIELD_KINDS } from '@heyform-inc/shared-types-enums'
-import { IconEye, IconEyeOff } from '@tabler/icons-react'
-import { useRequest } from 'ahooks'
 import { FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { FormService } from '@/services'
 import { helper, toFixed } from '@heyform-inc/utils'
 
-import { Button } from '@/components'
 import { useFormStore } from '@/store'
 
 import FormReportSubmissions from './Submissions'
@@ -95,7 +91,7 @@ const Ratings: FC<RatingsProps> = ({ length, chooses }) => {
 const FormReportItem: FC<FormReportItemProps> = ({ index, response, isHideFieldEnabled }) => {
   const { t } = useTranslation()
 
-  const { form, updateCustomReport } = useFormStore()
+  const { form } = useFormStore()
 
   const isChoices = useMemo(() => CHOICE_FIELD_KINDS.includes(response.kind), [response.kind])
   const isRating = useMemo(() => RATING_FIELD_KINDS.includes(response.kind), [response.kind])
@@ -115,54 +111,12 @@ const FormReportItem: FC<FormReportItemProps> = ({ index, response, isHideFieldE
     }
   }, [isChoices, isRating, response])
 
-  const { loading, run } = useRequest(
-    async () => {
-      if (!form?.id) {
-        return
-      }
-
-      const hf = form.customReport.hiddenFields || []
-      const hiddenFields = hf.includes(response.id)
-        ? hf.filter(id => id !== response.id)
-        : [...hf, response.id]
-
-      await FormService.updateCustomReport({
-        formId: form.id,
-        hiddenFields
-      })
-
-      updateCustomReport({
-        hiddenFields
-      })
-    },
-    {
-      refreshDeps: [form?.id, form?.customReport?.hiddenFields],
-      manual: true
-    }
-  )
-
   return (
     <li className="heyform-report-item">
       <div className="flex gap-4">
         <div className="heyform-report-question flex-1">
           {index}. {response.title}
         </div>
-
-        {isHideFieldEnabled && (
-          <Button.Ghost size="sm" className="font-sans" loading={loading} onClick={run}>
-            {isHided ? (
-              <>
-                <IconEye className="h-4 w-4" />
-                <span>{t('form.customReport.showQuestion')}</span>
-              </>
-            ) : (
-              <>
-                <IconEyeOff className="h-4 w-4" />
-                <span>{t('form.customReport.hideQuestion')}</span>
-              </>
-            )}
-          </Button.Ghost>
-        )}
       </div>
       <div className="heyform-report-meta">
         {isRating

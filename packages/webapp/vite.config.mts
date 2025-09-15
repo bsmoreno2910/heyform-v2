@@ -40,11 +40,8 @@ export default ({ mode }: ConfigEnv) => {
         output: {
           manualChunks: {
             vendor: [
-              'react',
               'react-router-dom',
-              'react-dom',
               'axios',
-              '@sentry/react',
               'i18next',
               'i18next-browser-languagedetector',
               'react-i18next'

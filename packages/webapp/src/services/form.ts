@@ -53,12 +53,6 @@ import {
 } from '@/consts'
 import { TemplateType } from '@/types'
 
-interface ChatOptions {
-  onMessage: (data: AnyMap) => void
-  onError: (error: string) => void
-  onClose: () => void
-}
-
 export class FormService {
   static async forms(projectId: string, status = FormStatusEnum.NORMAL) {
     return apollo.query({

@@ -1,15 +1,14 @@
 import { useRequest } from 'ahooks'
-import dayjs from 'dayjs'
 import { useTranslation } from 'react-i18next'
 
 import { WorkspaceService } from '@/services'
-import { formatDay, useParam } from '@/utils'
+import { useParam } from '@/utils'
 import { formatBytes } from '@heyform-inc/utils'
 
 import { Skeleton } from '@/components'
 
 export default function Overview() {
-  const { t, i18n } = useTranslation()
+  const { t } = useTranslation()
 
   const { workspaceId } = useParam()
 

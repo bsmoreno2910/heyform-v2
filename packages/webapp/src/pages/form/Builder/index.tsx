@@ -10,7 +10,6 @@ import { useFormStore } from '@/store'
 import '@/styles/builder.scss'
 import { FormType } from '@/types'
 
-import AIChat from './AIChat'
 import BuilderCompose from './Compose'
 import HiddenFieldsModal from './HiddenFieldsModal'
 import BuilderLeftSidebar, { BuilderLeftSidebarModal } from './LeftSidebar'
@@ -67,7 +66,6 @@ const Builder: FC<IBuilderProps> = ({ form }) => {
         </main>
       </div>
 
-      <AIChat />
       <BuilderLeftSidebarModal />
       <QuestionTypesModal />
       <PreviewModal />

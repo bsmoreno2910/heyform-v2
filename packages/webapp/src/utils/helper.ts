@@ -1,5 +1,7 @@
+import { getTheme, getThemeStyle } from '@heyform-inc/form-renderer'
 import { FormTheme } from '@heyform-inc/shared-types-enums'
 
+import { isMobilePhone } from '@heyform-inc/answer-utils'
 import { helper, qs, removeObjectNil } from '@heyform-inc/utils'
 
 import { STRIPE_PUBLISHABLE_KEY } from '@/consts'
@@ -82,7 +84,7 @@ export function insertStyle(id: string, style: string) {
 }
 
 export function isPhoneNumber(arg: any): boolean {
-  return helper.isValid(arg) && isMobilePhone(arg, 'zh-CN')
+  return helper.isValid(arg) && isMobilePhone(arg)
 }
 
 const SECOND = 1
