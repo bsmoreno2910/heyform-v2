@@ -27,6 +27,10 @@
     "zh-tw": {
       "original": "繁體中文（台灣）",
       "translated": "繁体字中国語（台湾）"
+    },
+    "pt-BR": {
+      "original": "Português (Brasil)",
+      "translated": "ポルトガル語（ブラジル）"
     }
   },
   "timezones": {

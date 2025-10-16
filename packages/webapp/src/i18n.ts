@@ -9,6 +9,7 @@ import en from '@/locales/en.json'
 import fr from '@/locales/fr.json'
 import ja from '@/locales/ja.json'
 import pl from '@/locales/pl.json'
+import ptBR from '@/locales/pt-BR.json'
 import zhCN from '@/locales/zh-cn.json'
 import zhTW from '@/locales/zh-tw.json'
 
@@ -43,6 +44,12 @@ const resources = {
       ...locales.pl.translation
     }
   },
+  'pt-BR': {
+    translation: {
+      ...ptBR,
+      ...locales['pt-BR']?.translation || {}
+    }
+  },
   'zh-cn': {
     translation: {
       ...zhCN,
@@ -68,7 +75,8 @@ i18n
     resources,
     fallbackLng: {
       default: [DEFAULT_LNG],
-      zh: ['zh-cn']
+      zh: ['zh-cn'],
+      pt: ['pt-BR']
     },
     supportedLngs: SUPPORTED_LNGS,
     interpolation: {

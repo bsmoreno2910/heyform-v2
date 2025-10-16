@@ -25,6 +25,11 @@ export const LOCALE_OPTIONS = [
     translated: 'languages.pl.translated'
   },
   {
+    value: 'pt-BR',
+    label: 'languages.pt-BR.original',
+    translated: 'languages.pt-BR.translated'
+  },
+  {
     value: 'zh-cn',
     label: 'languages.zh-cn.original',
     translated: 'languages.zh-cn.translated'
